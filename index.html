@@ -2847,8 +2847,24 @@ window.addEventListener('hashchange',function(){
 // SHI form submission -> go to assessment
 function handleSHISubmit(e){
   e.preventDefault();
+  var firstVal = (document.querySelector('input[name="shi_first"]').value || '').trim();
+  var phoneVal = (document.querySelector('input[name="shi_phone"]').value || '').trim();
   var emailVal = (document.querySelector('input[name="shi_email"]').value || '').trim().toLowerCase();
   var urlVal   = (document.querySelector('input[name="shi_url"]').value  || '').replace(/^\s+|\s+$/g,'').replace(/ /g,'').toLowerCase();
+
+  // Required fields (native browser validation is disabled via novalidate)
+  if(!firstVal){
+    alert('Please enter your first name.');
+    return;
+  }
+  if(!phoneVal){
+    alert('Please enter a phone number.');
+    return;
+  }
+  if(!emailVal){
+    alert('Please enter your business email address.');
+    return;
+  }
 
   // Block personal/free email domains
   var blockedDomains = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','hotmail.co.uk',
