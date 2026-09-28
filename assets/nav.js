@@ -9,12 +9,14 @@ function toggleFi(i){
   fi.classList.toggle('open');
 }
 
-// Insights category filter
+// Insights category filter (a card's data-cat may list more than one
+// category, space-separated, when an article genuinely spans two topics)
 function filterIns(cat,btn){
   document.querySelectorAll('.ins-tab').forEach(function(t){t.classList.remove('active');});
   btn.classList.add('active');
   document.querySelectorAll('.ins-card').forEach(function(c){
-    if(cat==='all'||c.dataset.cat===cat){c.style.display='';} else{c.style.display='none';}
+    var cats = (c.dataset.cat||'').split(' ');
+    if(cat==='all'||cats.indexOf(cat)!==-1){c.style.display='';} else{c.style.display='none';}
   });
 }
 
