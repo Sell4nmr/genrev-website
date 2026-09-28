@@ -103,7 +103,7 @@
         <div style="background:#FFF8E8;border:2px solid var(--gold);border-radius:8px;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.82rem;line-height:1.6;color:#664D03">
           <strong>Your privacy is protected.</strong> Your assessment responses stay entirely in your browser and are never transmitted anywhere. Your contact information is received only by Chuck — never shared with third parties, never sold, never used for any purpose other than a personal follow-up. No cookies. No tracking of any kind.
         </div>
-        <form name="shi-contact-capture" onsubmit="handleSHISubmit(event)">
+        <form name="shi-contact-capture" onsubmit="handleSHISubmit(event)" novalidate>
           <p style="display:none"><input name="bot-field"/></p>
           <div class="frow">
             <div class="fg"><label>First Name *</label><input type="text" name="shi_first" required/></div>
@@ -149,7 +149,7 @@
 
   <div style="background:linear-gradient(135deg,#006B32,#009444 60%,#00b354);padding:3rem 1.5rem;text-align:center">
     <div style="display:inline-block;background:rgba(255,255,255,0.2);color:var(--white);border:2px solid rgba(255,255,255,0.4);font-size:0.72rem;font-weight:800;letter-spacing:0.13em;text-transform:uppercase;padding:0.35rem 1.2rem;border-radius:20px;margin-bottom:1.2rem">Free Assessment Tool</div>
-    <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--white);margin-bottom:0.7rem">GENREV!™ Sales Health Index™</h1>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--white);margin-bottom:0.7rem;font-weight:700">GENREV!™ Sales Health Index™</h2>
     <p style="color:rgba(255,255,255,0.9);max-width:640px;margin:0 auto 1.2rem;font-size:0.96rem;line-height:1.7">A private, self-directed assessment of your sales organization across five key dimensions. Answer honestly based on your current reality, not where you'd like to be.</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1rem">
       <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.05em;background:rgba(255,255,255,0.08);color:var(--white);padding:0.28rem 0.85rem;border-radius:2rem;border:1px solid rgba(255,255,255,0.17)">&#10003; 26 Questions</span>
@@ -414,8 +414,24 @@
 // SHI form submission -> go to assessment
 function handleSHISubmit(e){
   e.preventDefault();
+  var firstVal = (document.querySelector('input[name="shi_first"]').value || '').trim();
+  var phoneVal = (document.querySelector('input[name="shi_phone"]').value || '').trim();
   var emailVal = (document.querySelector('input[name="shi_email"]').value || '').trim().toLowerCase();
-  var urlVal   = (document.querySelector('input[name="shi_url"]').value  || '').trim().toLowerCase();
+  var urlVal   = (document.querySelector('input[name="shi_url"]').value  || '').replace(/^\s+|\s+$/g,'').replace(/ /g,'').toLowerCase();
+
+  // Required fields (native browser validation is disabled via novalidate)
+  if(!firstVal){
+    alert('Please enter your first name.');
+    return;
+  }
+  if(!phoneVal){
+    alert('Please enter a phone number.');
+    return;
+  }
+  if(!emailVal){
+    alert('Please enter your business email address.');
+    return;
+  }
 
   // Block personal/free email domains
   var blockedDomains = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','hotmail.co.uk',
