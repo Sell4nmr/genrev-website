@@ -9,6 +9,15 @@ function toggleFi(i){
   fi.classList.toggle('open');
 }
 
+// Insights category filter
+function filterIns(cat,btn){
+  document.querySelectorAll('.ins-tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.ins-card').forEach(function(c){
+    if(cat==='all'||c.dataset.cat===cat){c.style.display='';} else{c.style.display='none';}
+  });
+}
+
 // Close mobile menu after tapping a link
 document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('#mobMenu a').forEach(function(a){
