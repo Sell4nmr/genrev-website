@@ -2086,7 +2086,7 @@ Re-read #...</p>
         <div style="background:#FFF8E8;border:2px solid var(--gold);border-radius:8px;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.82rem;line-height:1.6;color:#664D03">
           <strong>Your privacy is protected.</strong> Your assessment responses stay entirely in your browser and are never transmitted anywhere. Your contact information is received only by Chuck — never shared with third parties, never sold, never used for any purpose other than a personal follow-up. No cookies. No tracking of any kind.
         </div>
-        <form name="shi-contact-capture" onsubmit="handleSHISubmit(event)">
+        <form name="shi-contact-capture" onsubmit="handleSHISubmit(event)" novalidate>
           <p style="display:none"><input name="bot-field"/></p>
           <div class="frow">
             <div class="fg"><label>First Name *</label><input type="text" name="shi_first" required/></div>
@@ -2848,7 +2848,7 @@ window.addEventListener('hashchange',function(){
 function handleSHISubmit(e){
   e.preventDefault();
   var emailVal = (document.querySelector('input[name="shi_email"]').value || '').trim().toLowerCase();
-  var urlVal   = (document.querySelector('input[name="shi_url"]').value  || '').trim().toLowerCase();
+  var urlVal   = (document.querySelector('input[name="shi_url"]').value  || '').replace(/^\s+|\s+$/g,'').replace(/ /g,'').toLowerCase();
 
   // Block personal/free email domains
   var blockedDomains = ['gmail.com','yahoo.com','yahoo.co.uk','hotmail.com','hotmail.co.uk',
