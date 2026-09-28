@@ -99,7 +99,7 @@
             <li style="padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">✗</span> A lead generation trap</li>
             <li style="padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">✗</span> A one-size-fits-all report</li>
           </ul>
-          <p style="margin-top:0.8rem;font-size:0.85rem;color:var(--muted)">Your assessment responses are processed entirely in your browser and never transmitted anywhere. If you choose to share your contact information, only that is received by Chuck — no one else.</p>
+          <p style="margin-top:0.8rem;font-size:0.85rem;color:var(--muted)">Your assessment responses are processed entirely in your browser and never transmitted anywhere. If you choose to share your contact information, only that is received by Chuck, and no one else.</p>
         </div>
       </div>
 
@@ -117,7 +117,7 @@
         <p style="font-size:0.92rem;line-height:1.75;color:var(--black);margin-bottom:1rem">As a sales and business leader who has done the work at every level, from field sales to full P&amp;L ownership to company turnarounds, I know how rare it is to get an honest, pressure-free moment to reflect on where things really stand. That's why I built this tool. It's not a test, and there are no wrong answers. It's simply a structured way to surface what you already know, but may not have had the space to think through.</p>
         <p style="font-size:0.92rem;line-height:1.75;color:var(--black);margin-bottom:1.5rem">I'll follow up personally in a couple of days, not to pitch anything, but to hear how the experience was and whether the insights were useful. If something surfaces that you'd like to think through further, I'm happy to be a resource.</p>
         <div style="background:#FFF8E8;border:2px solid var(--gold);border-radius:8px;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.82rem;line-height:1.6;color:#664D03">
-          <strong>Your privacy is protected.</strong> Your assessment responses stay entirely in your browser and are never transmitted anywhere. Your contact information is received only by Chuck — never shared with third parties, never sold, never used for any purpose other than a personal follow-up. No cookies. No tracking of any kind.
+          <strong>Your privacy is protected.</strong> Your assessment responses stay entirely in your browser and are never transmitted anywhere. Your contact information is received only by Chuck. It is never shared with third parties, never sold, and never used for any purpose other than a personal follow-up. No cookies. No tracking of any kind.
         </div>
         <form name="shi-contact-capture" onsubmit="handleSHISubmit(event)" novalidate>
           <p style="display:none"><input name="bot-field"/></p>
@@ -544,7 +544,7 @@ var SHI_INTERPS = [
   {min:65,max:86,band:'Developing',color:'#E6A817',
    text:'Your responses suggest meaningful capability in some areas, along with opportunities in others that may be worth exploring. Organizations at this level often find that focusing on one or two lower-scoring categories can have a meaningful impact on overall performance.'},
   {min:0,max:64,band:'Foundational',color:'#C0392B',
-   text:'Your responses suggest your organization may be in the early stages of building structured commercial processes. This is a common starting point, and many organizations begin here. Exploring where to focus first — often in the areas with the lowest scores — can be a useful next step.'}
+   text:'Your responses suggest your organization may be in the early stages of building structured commercial processes. This is a common starting point, and many organizations begin here. Exploring where to focus first, often in the areas with the lowest scores, can be a useful next step.'}
 ];
 
 function shiScoreColor(val){
@@ -691,7 +691,7 @@ function shiShowResults(){
         '</div>'+
       '</div>'+
       '<div class="shi-cat-detail-body">'+qBarsHtml+
-        '<div class="shi-cat-insight"><strong style="font-style:normal;color:var(--green);display:block;margin-bottom:0.3rem">What This May Reflect — '+c.name+'</strong>'+catInsight+'</div>'+
+        '<div class="shi-cat-insight"><strong style="font-style:normal;color:var(--green);display:block;margin-bottom:0.3rem">What This May Reflect: '+c.name+'</strong>'+catInsight+'</div>'+
       '</div>'+
     '</div>';
   }).join('');
