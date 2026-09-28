@@ -3,6 +3,101 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+// Old hash-routed URLs (#about, #a5, etc.) and legacy /article/ and ?article= links
+// redirect to their real, crawlable pages. Runs before anything else renders.
+(function(){
+  var PAGE_REDIRECTS = {
+  "about": "/about/",
+  "engage": "/how-to-engage/",
+  "platform": "/platform/",
+  "proof": "/proof-of-work/",
+  "insights": "/insights/",
+  "faq": "/faq/",
+  "contact": "/contact/",
+  "shi": "/sales-health-index/",
+  "privacy": "/privacy-policy/"
+};
+  var ARTICLE_REDIRECTS = {
+    'bd-article': '/insights/business-development-more-than-new-logos/',
+    'a1': '/insights/forecasts-dont-fail-assumptions-do/',
+    'a2': '/insights/now-is-the-time-fix-forecasting-for-2026/',
+    'a3': '/insights/7-key-elements-to-successful-sales-forecasting/',
+    'a4': '/insights/sales-business-development-are-processes-but-not-the-ones-most-think/',
+    'a5': '/insights/part-8-of-8-forecasting-sales-and-gross-margin-for-profitable-growth/',
+    'a6': '/insights/the-silence-is-the-real-answer-the-sales-index-card-test/',
+    'a7': '/insights/we-need-sales-now/',
+    'a8': '/insights/sales-calls-vs-sales-dollars-vs-profit-dollars/',
+    'a9': '/insights/9-out-of-10-a-take-on-the-linkedin-skills-leaderboard/',
+    'a10': '/insights/unveiling-the-180-day-sales-puzzle-how-much-time-do-you-really-have/',
+    'a11': '/insights/business-development-more-than-new-logos/',
+    'a12': '/insights/new-business-development-is-often-misunderstood/',
+    'a13': '/insights/industrial-b2b-relationships-must-be-bigger-than-one-person/',
+    'a14': '/insights/a-partnership-is-a-contract-a-relationship-is-a-commitment/',
+    'a15': '/insights/beyond-new-logos-winning-and-retaining-new-business/',
+    'a16': '/insights/most-teams-ask-why-when-they-miss-how-many-ask-when-theyre-ahead/',
+    'a17': '/insights/sales-quality-vs-sales-quantity/',
+    'a18': '/insights/integrity-it-is-everything/',
+    'a19': '/insights/year-end-results-stop-moving-interpretation-shouldnt/',
+    'a20': '/insights/preparing-for-year-end-reviews-before-the-questions-get-asked/',
+    'a21': '/insights/whats-in-your-sales-wallet/',
+    'a22': '/insights/understanding-revenue-expense-a-key-to-empowering-your-sales-team/',
+    'a23': '/insights/re-engaging-at-the-start-of-the-year/',
+    'a24': '/insights/sales-resource-optimization-and-management/',
+    'a25': '/insights/business-and-seasons-both-change/',
+    'a26': '/insights/partnership-or-relationship/',
+    'a27': '/insights/adversity-vs-diversity-which-one-is-your-organization/',
+    'a28': '/insights/sales-resolution-resolute-results/',
+    'a29': '/insights/cold-calling-a-practical-approach-for-sales-professionals/',
+    'a32': '/insights/part-4-of-8-matching-customer-needs-with-organizational-capabilities/',
+    'a34': '/insights/part-6-of-8-equipping-and-supporting-the-sales-team/',
+    'a35': '/insights/what-is-a-customer/',
+    'a36': '/insights/why-instant-sales-is-a-myth/',
+    'a37': '/insights/sales-is-the-lifeline-to-every-business-but-i-dont-want-to-talk-about/',
+    'a38': '/insights/part-2-of-8-analyzing-trends-and-identifying-opportunities/',
+    'a39': '/insights/do-you-suffer-from-the-because-factor/',
+    'a40': '/insights/part-5-of-8-developing-customer-centric-sales-plans/',
+    'a41': '/insights/part-3-of-8-creating-customer-profiles-for-strategic-focus/',
+    'a42': '/insights/part-7-of-8-crafting-smart-sales-strategies/',
+    'a43': '/insights/top-cold-calling-statistics-and-tips-for-2024-overcome-challenges-and/',
+    'a44': '/insights/sales-is-the-lifeline-to-every-business-but-i-dont-want-to-talk-about/',
+    'a45': '/insights/sales-training-teaches-how-to-sell-genrev-manages-whether-it-worked/'
+  };
+
+  function target(id){
+    if(PAGE_REDIRECTS[id]) return PAGE_REDIRECTS[id];
+    if(ARTICLE_REDIRECTS[id]) return ARTICLE_REDIRECTS[id];
+    return null;
+  }
+
+  var hash = window.location.hash.replace('#','');
+  var search = window.location.search;
+  var pathMatch = window.location.pathname.match(/^\/article\/([^\/]+)\/?$/);
+
+  // Shareable SHI results link — preserve the score string, hand off to the real SHI page
+  var shiResultsMatch = hash.match(/^shi-r=\d{26}$/);
+  if(shiResultsMatch){
+    window.location.replace('/sales-health-index/#' + hash);
+    return;
+  }
+
+  if(hash){
+    var t = target(hash);
+    if(t){ window.location.replace(t); return; }
+  }
+
+  var qp = new URLSearchParams(search).get('article');
+  if(qp){
+    var t2 = target(qp);
+    if(t2){ window.location.replace(t2); return; }
+  }
+
+  if(pathMatch){
+    var t3 = target(pathMatch[1]);
+    if(t3){ window.location.replace(t3); return; }
+  }
+})();
+</script>
 <title>GENREV!™ | Fractional VP of Sales for Industrial B2B Manufacturers &amp; Distributors</title>
 <meta name="description" content="Fractional, interim, and project-based sales leadership exclusively for industrial B2B manufacturers and distributors under $50M. 38 years of operating experience. Real results."/>
 <meta name="keywords" content="fractional VP of sales, fractional sales leadership, outsourced VP sales, interim sales leadership, industrial B2B sales, industrial B2B fractional sales, manufacturing sales leadership, distributor sales leadership, sales structure, sales forecasting, revenue growth, EBITDA growth, sales accountability, Sales Health Index, SHI, Chuck Kitchen, GENREV"/>
