@@ -21,6 +21,8 @@ nav{background:var(--white);position:fixed;top:0;left:0;right:0;z-index:500;bord
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--green)}
 .nav-shi{background:var(--gold)!important;color:var(--black)!important;padding:0.32rem 0.55rem!important}
 .nav-shi:hover,.nav-shi.active{background:var(--cream)!important;color:var(--black)!important}
+.nav-lite{background:var(--gl)!important;color:var(--gm)!important;border:1.5px solid var(--green)!important;padding:0.28rem 0.55rem!important}
+.nav-lite:hover,.nav-lite.active{background:var(--green)!important;color:var(--white)!important}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .hamburger span{width:24px;height:2px;background:var(--black);border-radius:2px;display:block;transition:all 0.3s}
 .mob{display:none;position:fixed;top:72px;left:0;right:0;background:var(--black);z-index:499;padding:1.2rem 1.5rem 2rem;flex-direction:column;gap:0.15rem;max-height:calc(100vh - 72px);overflow-y:auto}
@@ -28,6 +30,7 @@ nav{background:var(--white);position:fixed;top:0;left:0;right:0;z-index:500;bord
 .mob a{color:#ccc;font-size:0.88rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:0.6rem 0;border-bottom:1px solid #2a2a2a;cursor:pointer;display:block;transition:color 0.2s}
 .mob a:hover,.mob a.active{color:var(--green)}
 .mob .m-shi{color:var(--gold)!important;margin-top:0.5rem}
+.mob .m-lite{color:var(--green)!important}
 
 /* ═══ PAGES ═══ */
 .page{display:none;padding-top:72px}
