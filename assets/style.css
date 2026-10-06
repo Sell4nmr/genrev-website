@@ -506,3 +506,7 @@ input.shi-scale-btn[value="5"]:checked + .shi-scale-label .shi-scale-circle{back
   @media (max-width: 720px) {
     .align-grid { grid-template-columns: 1fr !important; }
   }
+
+.fa a{color:var(--green);text-decoration:underline;font-weight:600}
+.fa a:hover{opacity:0.75}
+.fa .fa-more{margin-top:0.5rem}
