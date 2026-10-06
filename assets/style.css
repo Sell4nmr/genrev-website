@@ -510,3 +510,7 @@ input.shi-scale-btn[value="5"]:checked + .shi-scale-label .shi-scale-circle{back
 .fa a{color:var(--green);text-decoration:underline;font-weight:600}
 .fa a:hover{opacity:0.75}
 .fa .fa-more{margin-top:0.5rem}
+.q-group{font-size:1.15rem;color:var(--green);margin:2.6rem 0 0.4rem}
+.q-group:first-child{margin-top:0}
+.q-link{display:block;background:var(--gl);border-left:4px solid var(--green);padding:0.9rem 1.2rem;margin-bottom:1.6rem;color:var(--black);text-decoration:none;font-size:0.95rem}
+.q-link:hover{color:var(--green)}
